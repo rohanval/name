@@ -1,0 +1,57 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class BankingSystemUI {
+    private JFrame frame;
+    private JTextField accountNumberField;
+    private JLabel balanceLabel;
+    
+    public BankingSystemUI() {
+        frame = new JFrame("Banking System");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+        
+        JLabel accountLabel = new JLabel("Enter account number: ");
+        accountLabel.setBounds(20, 20, 200, 30);
+        frame.add(accountLabel);
+        
+        accountNumberField = new JTextField();
+        accountNumberField.setBounds(200, 20, 150, 30);
+        frame.add(accountNumberField);
+        
+        JButton checkBalanceButton = new JButton("Check Balance");
+        checkBalanceButton.setBounds(20, 70, 150, 30);
+        frame.add(checkBalanceButton);
+        
+        balanceLabel = new JLabel("Current balance: ");
+        balanceLabel.setBounds(20, 120, 300, 30);
+        frame.add(balanceLabel);
+        
+        checkBalanceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkBalance();
+            }
+        });
+        
+        frame.setVisible(true);
+    }
+    
+    private void checkBalance() {
+        String accountNumber = accountNumberField.getText();
+        // Assuming getBalance is a method that fetches the account balance
+        // For example:
+        // Account balanceAccount = bank.getAccount(accountNumber);
+        // if (balanceAccount != null) {
+        //     balanceLabel.setText("Current balance: " + balanceAccount.getBalance());
+        // } else {
+        //     balanceLabel.setText("Account not found.");
+        // }
+    }
+
+    public static void main(String[] args) {
+        new BankingSystemUI();
+    }
+}
